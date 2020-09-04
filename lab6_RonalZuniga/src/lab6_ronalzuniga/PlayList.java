@@ -33,7 +33,7 @@ public class PlayList {
 
     @Override
     public String toString() {
-        return "PlayList{" + "nombre=" + nombre + ", canciones=" + canciones + '}';
+        return nombre;
     }
     
 }
