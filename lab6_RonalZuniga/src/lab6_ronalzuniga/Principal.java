@@ -5,9 +5,17 @@
  */
 package lab6_ronalzuniga;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -85,14 +93,22 @@ public class Principal extends javax.swing.JFrame {
         cb_s = new javax.swing.JComboBox<>();
         jButton4 = new javax.swing.JButton();
         jd_deletep = new javax.swing.JDialog();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        t1 = new javax.swing.JTable();
         jLabel24 = new javax.swing.JLabel();
         jLabel25 = new javax.swing.JLabel();
         cb_pll = new javax.swing.JComboBox<>();
         jButton5 = new javax.swing.JButton();
+        jd_archivo = new javax.swing.JDialog();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        ta_1 = new javax.swing.JTextArea();
+        jLabel26 = new javax.swing.JLabel();
         jButton6 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
+        jd_nuevo = new javax.swing.JDialog();
+        jLabel27 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        ta2 = new javax.swing.JTextArea();
+        jButton8 = new javax.swing.JButton();
+        jButton9 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jmi_cp = new javax.swing.JMenuItem();
@@ -568,16 +584,6 @@ public class Principal extends javax.swing.JFrame {
                 .addContainerGap(77, Short.MAX_VALUE))
         );
 
-        t1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Nombre", "Puntuación", "Año", "Artista", "Álbum"
-            }
-        ));
-        jScrollPane1.setViewportView(t1);
-
         jLabel24.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         jLabel24.setForeground(new java.awt.Color(0, 153, 255));
         jLabel24.setText("Eliminar PlayList");
@@ -601,79 +607,149 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
+        javax.swing.GroupLayout jd_deletepLayout = new javax.swing.GroupLayout(jd_deletep.getContentPane());
+        jd_deletep.getContentPane().setLayout(jd_deletepLayout);
+        jd_deletepLayout.setHorizontalGroup(
+            jd_deletepLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_deletepLayout.createSequentialGroup()
+                .addGap(113, 113, 113)
+                .addGroup(jd_deletepLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(jButton5)
+                    .addComponent(cb_pll, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel25)
+                    .addComponent(jLabel24))
+                .addContainerGap(124, Short.MAX_VALUE))
+        );
+        jd_deletepLayout.setVerticalGroup(
+            jd_deletepLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_deletepLayout.createSequentialGroup()
+                .addGap(47, 47, 47)
+                .addComponent(jLabel24)
+                .addGap(44, 44, 44)
+                .addComponent(jLabel25)
+                .addGap(18, 18, 18)
+                .addComponent(cb_pll, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(43, 43, 43)
+                .addComponent(jButton5)
+                .addContainerGap(59, Short.MAX_VALUE))
+        );
+
+        ta_1.setColumns(20);
+        ta_1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        ta_1.setRows(5);
+        jScrollPane2.setViewportView(ta_1);
+
+        jLabel26.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        jLabel26.setForeground(new java.awt.Color(0, 153, 255));
+        jLabel26.setText("Archivo");
+
         jButton6.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jButton6.setText("Eliminar Canción de PlayList");
+        jButton6.setText("Abrir Archivo");
         jButton6.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton6MouseClicked(evt);
             }
         });
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
-            }
-        });
 
         jButton7.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jButton7.setText("Listar PlayList Seleccionada");
-        jButton7.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton7MouseClicked(evt);
-            }
-        });
+        jButton7.setText("Guardar Cambios");
         jButton7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton7ActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout jd_deletepLayout = new javax.swing.GroupLayout(jd_deletep.getContentPane());
-        jd_deletep.getContentPane().setLayout(jd_deletepLayout);
-        jd_deletepLayout.setHorizontalGroup(
-            jd_deletepLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jd_deletepLayout.createSequentialGroup()
-                .addGroup(jd_deletepLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jd_deletepLayout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 855, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jd_deletepLayout.createSequentialGroup()
-                        .addGap(309, 309, 309)
-                        .addComponent(jLabel24))
-                    .addGroup(jd_deletepLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jd_deletepLayout.createSequentialGroup()
-                            .addGap(133, 133, 133)
-                            .addComponent(jButton7)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton5))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jd_deletepLayout.createSequentialGroup()
-                            .addGap(172, 172, 172)
-                            .addComponent(jLabel25)
-                            .addGap(139, 139, 139)
-                            .addComponent(cb_pll, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(30, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_deletepLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
+        javax.swing.GroupLayout jd_archivoLayout = new javax.swing.GroupLayout(jd_archivo.getContentPane());
+        jd_archivo.getContentPane().setLayout(jd_archivoLayout);
+        jd_archivoLayout.setHorizontalGroup(
+            jd_archivoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_archivoLayout.createSequentialGroup()
+                .addGroup(jd_archivoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jd_archivoLayout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 756, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jd_archivoLayout.createSequentialGroup()
+                        .addGap(355, 355, 355)
+                        .addComponent(jLabel26)))
+                .addContainerGap(71, Short.MAX_VALUE))
+            .addGroup(jd_archivoLayout.createSequentialGroup()
+                .addGap(163, 163, 163)
                 .addComponent(jButton6)
-                .addGap(314, 314, 314))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton7)
+                .addGap(160, 160, 160))
         );
-        jd_deletepLayout.setVerticalGroup(
-            jd_deletepLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jd_deletepLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel24)
-                .addGap(42, 42, 42)
-                .addGroup(jd_deletepLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel25)
-                    .addComponent(cb_pll, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(50, 50, 50)
-                .addGroup(jd_deletepLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton5)
-                    .addComponent(jButton7))
-                .addGap(74, 74, 74)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(55, 55, 55)
-                .addComponent(jButton6)
-                .addContainerGap(107, Short.MAX_VALUE))
+        jd_archivoLayout.setVerticalGroup(
+            jd_archivoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_archivoLayout.createSequentialGroup()
+                .addGap(72, 72, 72)
+                .addComponent(jLabel26)
+                .addGap(45, 45, 45)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 369, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(58, 58, 58)
+                .addGroup(jd_archivoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton6)
+                    .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(117, Short.MAX_VALUE))
+        );
+
+        jLabel27.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        jLabel27.setForeground(new java.awt.Color(0, 153, 255));
+        jLabel27.setText("Guardar Archivo");
+
+        jScrollPane1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+
+        ta2.setColumns(20);
+        ta2.setRows(5);
+        jScrollPane1.setViewportView(ta2);
+
+        jButton8.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jButton8.setText("Crear Archivo");
+        jButton8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton8MouseClicked(evt);
+            }
+        });
+
+        jButton9.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jButton9.setText("Guardar Cambios");
+        jButton9.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton9MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jd_nuevoLayout = new javax.swing.GroupLayout(jd_nuevo.getContentPane());
+        jd_nuevo.getContentPane().setLayout(jd_nuevoLayout);
+        jd_nuevoLayout.setHorizontalGroup(
+            jd_nuevoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_nuevoLayout.createSequentialGroup()
+                .addGroup(jd_nuevoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jd_nuevoLayout.createSequentialGroup()
+                        .addGap(332, 332, 332)
+                        .addComponent(jLabel27))
+                    .addGroup(jd_nuevoLayout.createSequentialGroup()
+                        .addGap(60, 60, 60)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 837, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jd_nuevoLayout.createSequentialGroup()
+                        .addGap(223, 223, 223)
+                        .addComponent(jButton8)
+                        .addGap(188, 188, 188)
+                        .addComponent(jButton9)))
+                .addContainerGap(78, Short.MAX_VALUE))
+        );
+        jd_nuevoLayout.setVerticalGroup(
+            jd_nuevoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_nuevoLayout.createSequentialGroup()
+                .addGap(46, 46, 46)
+                .addComponent(jLabel27)
+                .addGap(49, 49, 49)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(80, 80, 80)
+                .addGroup(jd_nuevoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton8)
+                    .addComponent(jButton9))
+                .addContainerGap(156, Short.MAX_VALUE))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -759,10 +835,20 @@ public class Principal extends javax.swing.JFrame {
 
         jmi_of.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jmi_of.setText("Abrir Archivo");
+        jmi_of.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmi_ofActionPerformed(evt);
+            }
+        });
         jMenu3.add(jmi_of);
 
         jmi_save.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jmi_save.setText("Guardar");
+        jmi_save.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmi_saveActionPerformed(evt);
+            }
+        });
         jMenu3.add(jmi_save);
 
         jMenuBar1.add(jMenu3);
@@ -793,10 +879,6 @@ public class Principal extends javax.swing.JFrame {
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton5ActionPerformed
-
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jmi_acpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_acpActionPerformed
         jd_addc.setModal(true);
@@ -857,6 +939,8 @@ public class Principal extends javax.swing.JFrame {
         ml.addElement(pl);
         cb_pll.setModel(ml);
         JOptionPane.showMessageDialog(this, "PlayList creada correctamente");
+        
+        tf_nombrepl.setText("");
     }//GEN-LAST:event_jButton1MouseClicked
 
     private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
@@ -866,6 +950,8 @@ public class Principal extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "Modificado correctamente");
             }
         }
+        cb_p1.setSelectedIndex(0);
+        tf_nom.setText("");
     }//GEN-LAST:event_jButton3MouseClicked
 
     private void bt_aggcMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_aggcMouseClicked
@@ -888,6 +974,10 @@ public class Principal extends javax.swing.JFrame {
         
         JOptionPane.showMessageDialog(this, "Cancion agregada correctamente");
         
+        tf_nombre.setText("");
+        tf_artista.setText("");
+        tf_album.setText("");
+        
     }//GEN-LAST:event_bt_aggcMouseClicked
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
@@ -909,6 +999,7 @@ public class Principal extends javax.swing.JFrame {
         m.removeElement(x);
         cb_c.setModel(m);
         
+        
         DefaultComboBoxModel md = (DefaultComboBoxModel)cb_cc.getModel();
         md.removeElement(x);
         cb_cc.setModel(md);
@@ -918,6 +1009,9 @@ public class Principal extends javax.swing.JFrame {
         cb_s.setModel(ml);
         
         JOptionPane.showMessageDialog(this, "Cancion agregada a PlayList correctamente");
+        
+        cb_p.setSelectedIndex(0);
+        cb_c.setSelectedIndex(0);
     }//GEN-LAST:event_jButton2MouseClicked
 
     private void bt_modifyMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_modifyMouseClicked
@@ -930,6 +1024,11 @@ public class Principal extends javax.swing.JFrame {
             }
         }
         JOptionPane.showMessageDialog(this, "Cancion modificada correctamente");
+        
+        tf_nombre1.setText("");
+        tf_artista1.setText("");
+        tf_album1.setText("");
+        cb_cc.setSelectedIndex(0);
     }//GEN-LAST:event_bt_modifyMouseClicked
 
     private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
@@ -955,30 +1054,8 @@ public class Principal extends javax.swing.JFrame {
         
         JOptionPane.showMessageDialog(this, "Cancion eliminada correctamente");
         
+        cb_c.setSelectedIndex(0);
     }//GEN-LAST:event_jButton4MouseClicked
-
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton7ActionPerformed
-
-    private void jButton7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton7MouseClicked
-        PlayList l = (PlayList) cb_pll.getSelectedItem();
-        ArrayList <Canciones> cs = l.getCanciones();
-        Canciones ss = new Canciones();
-        for (int i = 0; i < cs.size(); i++) {
-            ss = cs.get(i);
-            Object [] t = {
-                ss.getNombre(),
-                ss.getPuntuacion(),
-                ss.getYear(),
-                ss.getArtista(),
-                ss.getAlbum()
-            };
-            DefaultTableModel md = (DefaultTableModel) t1.getModel();
-            md.addRow(t);
-            t1.setModel(md);
-        }
-    }//GEN-LAST:event_jButton7MouseClicked
 
     private void jButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseClicked
         PlayList l = (PlayList) cb_pll.getSelectedItem();
@@ -999,14 +1076,148 @@ public class Principal extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jButton5MouseClicked
 
+    private void jmi_ofActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_ofActionPerformed
+    jd_archivo.setModal(true);
+    jd_archivo.pack();
+    jd_archivo.setLocationRelativeTo(this);
+    jd_archivo.setVisible(true);
+    }//GEN-LAST:event_jmi_ofActionPerformed
+
     private void jButton6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseClicked
-        if (t1.getSelectedRow()>=0) {
-            DefaultTableModel modelo = (DefaultTableModel) t1.getModel();
-            modelo.removeRow(t1.getSelectedRow());
-            t1.setModel(modelo);
-            JOptionPane.showMessageDialog(this, "Cancion eliminada correctamente");
+         File fichero = null;
+        FileReader fr = null;
+        BufferedReader br = null;
+        ta_1.setText("");
+        try {
+            JFileChooser jfc = new JFileChooser("./");
+            FileNameExtensionFilter filtro = 
+                    new FileNameExtensionFilter(
+                            "Archivos de Texto", "txt");
+            jfc.setFileFilter(filtro);           
+            int seleccion = jfc.showOpenDialog(this);
+            if (seleccion == JFileChooser.APPROVE_OPTION)
+            {
+               fichero = jfc.getSelectedFile();
+               fr = new FileReader(fichero);
+               br=new BufferedReader(fr);
+               String linea;
+               ta_1.setText("");
+               while(  (linea=br.readLine()) !=null  ){                    
+                    ta_1.append(linea);
+                    ta_1.append("\n");
+                }
+            } //fin if
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        try {
+            br.close();
+            fr.close();
+        } catch (IOException ex) {
         }
     }//GEN-LAST:event_jButton6MouseClicked
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        JFileChooser jfc = new JFileChooser();
+        FileNameExtensionFilter filtro = 
+                    new FileNameExtensionFilter(
+                            "Archivos de Texto", "txt");
+         jfc.addChoosableFileFilter(filtro); 
+        int seleccion = jfc.showSaveDialog(this);        
+        FileWriter fw = null;
+        BufferedWriter bw = null;
+        if (seleccion == JFileChooser.APPROVE_OPTION) {
+             try {
+                 
+                  File fichero=null;
+                if (jfc.getFileFilter().getDescription().equals(
+                        "Archivos de Texto")) {
+                    fichero = 
+                        new File(jfc.getSelectedFile().getPath()+".txt");
+                }else{
+                    fichero = jfc.getSelectedFile();
+                }                             
+                fw = new FileWriter(fichero);
+                bw = new BufferedWriter(fw);
+                bw.write(ta_1.getText());
+                ta_1.setText("");
+                bw.flush();         
+                JOptionPane.showMessageDialog(this, 
+                        "Archivo guardado exitosamente");  
+                
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            try {
+                    bw.close();
+                    fw.close();
+                } catch (IOException ex) {
+           }                     
+        }//fin If
+    }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void jButton8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton8MouseClicked
+        JFileChooser fileChooser = new JFileChooser();
+        int seleccion = fileChooser.showSaveDialog(this);
+        if (seleccion == JFileChooser.APPROVE_OPTION) {
+            File dir = fileChooser.getSelectedFile();
+            boolean fueCreado = dir.mkdir();
+            if (fueCreado) {
+                JOptionPane.showMessageDialog(this,
+                        "Directorio Creado exitosamente");
+            } else {
+                JOptionPane.showMessageDialog(this,
+                        "El directorio no fue creado");
+            }
+        }
+    }//GEN-LAST:event_jButton8MouseClicked
+
+    private void jButton9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton9MouseClicked
+        JFileChooser jfc = new JFileChooser();
+        FileNameExtensionFilter filtro = 
+                    new FileNameExtensionFilter(
+                            "Archivos de Texto", "txt");
+         jfc.addChoosableFileFilter(filtro); 
+        int seleccion = jfc.showSaveDialog(this);        
+        FileWriter fw = null;
+        BufferedWriter bw = null;
+        if (seleccion == JFileChooser.APPROVE_OPTION) {
+             try {
+                 
+                  File fichero=null;
+                if (jfc.getFileFilter().getDescription().equals(
+                        "Archivos de Texto")) {
+                    fichero = 
+                        new File(jfc.getSelectedFile().getPath()+".txt");
+                }else{
+                    fichero = jfc.getSelectedFile();
+                }                             
+                fw = new FileWriter(fichero);
+                bw = new BufferedWriter(fw);
+                bw.write(ta2.getText());
+                ta2.setText("");
+                bw.flush();         
+                JOptionPane.showMessageDialog(this, 
+                        "Archivo guardado exitosamente");  
+                
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            try {
+                    bw.close();
+                    fw.close();
+                } catch (IOException ex) {
+           }                     
+        }//fin IF
+    }//GEN-LAST:event_jButton9MouseClicked
+
+    private void jmi_saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_saveActionPerformed
+        jd_nuevo.setModal(true);
+        jd_nuevo.pack();
+        jd_nuevo.setLocationRelativeTo(this);
+        jd_nuevo.setVisible(true);
+    }//GEN-LAST:event_jmi_saveActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1059,6 +1270,8 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButton8;
+    private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1077,6 +1290,8 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -1089,13 +1304,16 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JDialog jd_addc;
     private javax.swing.JDialog jd_aggc;
+    private javax.swing.JDialog jd_archivo;
     private javax.swing.JDialog jd_crearp;
     private javax.swing.JDialog jd_deletec;
     private javax.swing.JDialog jd_deletep;
     private javax.swing.JDialog jd_modc;
     private javax.swing.JDialog jd_modifyp;
+    private javax.swing.JDialog jd_nuevo;
     private javax.swing.JMenuItem jmi_ac;
     private javax.swing.JMenuItem jmi_acp;
     private javax.swing.JMenuItem jmi_cp;
@@ -1107,7 +1325,8 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jmi_save;
     private javax.swing.JSpinner sp_p;
     private javax.swing.JSpinner sp_p1;
-    private javax.swing.JTable t1;
+    private javax.swing.JTextArea ta2;
+    private javax.swing.JTextArea ta_1;
     private javax.swing.JTextField tf_album;
     private javax.swing.JTextField tf_album1;
     private javax.swing.JTextField tf_artista;
